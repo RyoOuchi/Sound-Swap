@@ -1,0 +1,90 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.stream-deck-screen {
+    margin: auto;
+    position: relative;
+	background-color: #4a484a;
+    width: 60%;
+    aspect-ratio: 8/5;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.stream-deck-screen h2 {
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.title-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.title-wrapper h2 {
+    font-size: 3vw; /* Adjust the number as needed */
+}
+
+
+img {
+    width: 10%;
+    aspect-ratio: 1/1;
+    margin-right: 7px;
+    vertical-align: middle;
+}
+
+.stream-deck-screen .button-layout {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    justify-content: center;
+    align-items: center;
+    place-items: center;
+    column-gap: 0;
+    row-gap: 4vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-bottom: 5vw;
+}
+
+.stream-deck-screen .button-layout button {
+    background-color: white;
+    border-color: black;
+    border-width: 1vw;
+    aspect-ratio: 1/1;
+    width: 6vw;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 9px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.stream-deck-screen .button-layout .stream-deck-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stream-deck-screen .button-layout .stream-deck-button img {
+    width: 2vw;
+    aspect-ratio: 1/1;
+    margin: 0;
+} 
+
+.stream-deck-screen .button-layout .stream-deck-button p {
+    margin: 0;
+    font-size: 0.7vw;
+}   

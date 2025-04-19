@@ -1,0 +1,353 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #E1EEBC;
+}
+
+/* Fixes possible white line and standardizes header look */
+.site-header {
+  background-color: #328E6E;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+}
+
+/* Flex layout and padding inside the header */
+.site-header .container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+/* Logo area */
+.logo a {
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.logo-img {
+  height: 32px;
+  margin-right: 8px;
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-button {
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-decoration: none;
+}
+
+.nav-button:hover {
+  background-color: #E1EEBC;
+  color: #1e1e2f;
+}
+
+.welcome-text {
+  color: white;
+  margin-right: 16px;
+  font-weight: 500;
+}
+
+.site-header form {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid white;
+  border-radius: 8px;
+  padding: 4px 8px;
+  background-color: transparent;
+  height: 30px;
+}
+
+.site-header input[type="text"] {
+  border: none;
+  background: transparent;
+  color: white;
+  outline: none;
+  font-size: 14px;
+  width: 180px;
+  padding: 6px 4px;
+}
+
+.site-header input[type="text"]::placeholder {
+  color: #e0e0e0;
+}
+
+.site-header button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+.site-header button:hover {
+  color: #d0ffd0;
+}
+
+
+/* Sidebar styling */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  background-color: #67AE6E;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  color: #f1f1f1;
+  display: block;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background-color: #90C67C;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 30px;
+}
+
+/* Open button */
+.openbtn {
+  font-size: 24px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #111;
+  padding: 10px 15px;
+  border: none;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1001;
+}
+
+
+.post-container {
+  max-width: 600px;
+  margin: 40px auto;
+  background-color: #328E6E;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  color: #fff;
+}
+
+.post-title {
+  margin-top: 0;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: clamp(14px, 4vw, 20px);
+}
+
+.audio-player {
+  width: 100%;
+  margin: 15px 0;
+}
+
+.post-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #ccc;
+    overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;         /* Show up to 4 lines */
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+
+.download-form {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.download-button {
+  width: auto;
+  padding: 10px 24px;
+  background-color: #67AE6E;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.download-button:hover {
+  background-color: #90C67C;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.download-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Grid layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 210px);
+  gap: 24px;
+  padding: 40px 20px;
+}
+
+/* Individual post card */
+.post-card {
+  height: 270px;
+  background-color: #328E6E;
+  border-radius: 12px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
+}
+
+
+.post-description {
+  font-size: 0.95rem;
+  color: #fff;
+  flex-grow: 1;
+}
+
+.download-form {
+  display: flex;
+  justify-content: center; /* ⬅️ center horizontally */
+  margin-top: 16px;
+}
+
+.play-button {
+  background-color: #67AE6E;        /* your site's green */
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  font-size: 1.2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.play-button:hover {
+  background-color: #90C67C;
+  transform: scale(1.1);
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #328E6E;
+  color: white;
+  text-decoration: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+  background-color: #276f57;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  margin-top: 16px;
+}
+
+.download-form,
+.like-form {
+  margin: 0;
+}
+
+.like-button {
+  width: auto;
+  padding: 10px 24px;
+  background-color: #328E6E;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.like-button:hover {
+  background-color: #276f57;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.like-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon-button {
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
+
+.icon-button i {
+  color: white;
+}

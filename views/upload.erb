@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sound Swap</title>
+  <link rel="stylesheet" href="/css/upload.css">
+  <link rel="shortcut icon" href="img/logo.png"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+  <div class="container">
+    <a href="/" class="back-link">← ホームに戻る</a>
+
+    <h1 class="form-title">音声をアップロード</h1>
+
+    <form action="/upload" method="POST" enctype="multipart/form-data" class="upload-form">
+        <input type="text" name="post_title" placeholder="タイトル" required>
+        <input type="text" name="description" placeholder="説明">
+<div class="file-input-wrapper">
+  <label for="mp3_file" class="icon-label">
+    <i class="fas fa-upload"></i>
+  </label>
+  <input type="file" id="mp3_file" name="mp3_file" accept="audio/mpeg" required>
+</div>
+
+
+
+      <input type="submit" value="アップロード">
+    </form>
+  </div>
+  
+  <script>
+  const fileInput = document.getElementById('mp3_file');
+  const fileNameDisplay = document.getElementById('file-name');
+
+  fileInput.addEventListener('change', () => {
+    fileNameDisplay.textContent = fileInput.files[0]?.name || '未選択';
+  });
+</script>
+
+</body>
+</html>
