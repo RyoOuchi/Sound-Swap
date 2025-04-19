@@ -4,7 +4,7 @@ body {
   background-color: #E1EEBC;
 }
 
-/* Fixes possible white line and standardizes header look */
+/* ====== Header ====== */
 .site-header {
   background-color: #328E6E;
   width: 100%;
@@ -14,7 +14,6 @@ body {
   box-shadow: none;
 }
 
-/* Flex layout and padding inside the header */
 .site-header .container {
   max-width: 1100px;
   margin: 0 auto;
@@ -25,7 +24,6 @@ body {
   color: white;
 }
 
-/* Logo area */
 .logo a {
   display: flex;
   align-items: center;
@@ -40,7 +38,13 @@ body {
   margin-right: 8px;
 }
 
-/* Nav links */
+.welcome-text {
+  color: white;
+  margin-right: 16px;
+  font-weight: 500;
+}
+
+/* ====== Nav ====== */
 .nav-links {
   display: flex;
   align-items: center;
@@ -53,8 +57,8 @@ body {
   border: 1px solid white;
   color: white;
   border-radius: 6px;
-  transition: background-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .nav-button:hover {
@@ -62,12 +66,7 @@ body {
   color: #1e1e2f;
 }
 
-.welcome-text {
-  color: white;
-  margin-right: 16px;
-  font-weight: 500;
-}
-
+/* ====== Search in Header ====== */
 .site-header form {
   display: flex;
   align-items: center;
@@ -105,64 +104,76 @@ body {
   color: #d0ffd0;
 }
 
+/* ====== Sidebar ====== */
+/*.sidebar {*/
+/*  height: 100%;*/
+/*  width: 0;*/
+/*  position: fixed;*/
+/*  z-index: 1000;*/
+/*  top: 0;*/
+/*  left: 0;*/
+/*  background-color: #67AE6E;*/
+/*  overflow-x: hidden;*/
+/*  transition: 0.3s;*/
+/*  padding-top: 60px;*/
+/*}*/
 
-/* Sidebar styling */
-.sidebar {
-  height: 100%;
-  width: 0;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  background-color: #67AE6E;
-  overflow-x: hidden;
-  transition: 0.3s;
-  padding-top: 60px;
+/*.sidebar a {*/
+/*  padding: 10px 20px;*/
+/*  text-decoration: none;*/
+/*  font-size: 18px;*/
+/*  color: #f1f1f1;*/
+/*  display: block;*/
+/*  transition: 0.2s;*/
+/*}*/
+
+/*.sidebar a:hover {*/
+/*  background-color: #90C67C;*/
+/*}*/
+
+/*.sidebar .closebtn {*/
+/*  position: absolute;*/
+/*  top: 15px;*/
+/*  right: 20px;*/
+/*  font-size: 30px;*/
+/*}*/
+
+/*.openbtn {*/
+/*  font-size: 24px;*/
+/*  cursor: pointer;*/
+/*  background-color: transparent;*/
+/*  color: #111;*/
+/*  padding: 10px 15px;*/
+/*  border: none;*/
+/*  position: absolute;*/
+/*  top: 10px;*/
+/*  left: 10px;*/
+/*  z-index: 1001;*/
+/*}*/
+
+/* ====== Post ====== */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 210px);
+  gap: 24px;
+  padding: 40px 20px;
 }
 
-.sidebar a {
-  padding: 10px 20px;
-  text-decoration: none;
-  font-size: 18px;
-  color: #f1f1f1;
-  display: block;
-  transition: 0.2s;
-}
-
-.sidebar a:hover {
-  background-color: #90C67C;
-}
-
-.sidebar .closebtn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px;
-}
-
-/* Open button */
-.openbtn {
-  font-size: 24px;
-  cursor: pointer;
-  background-color: transparent;
-  color: #111;
-  padding: 10px 15px;
-  border: none;
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 1001;
-}
-
-
-.post-container {
-  max-width: 600px;
-  margin: 40px auto;
+.post-card {
+  height: 270px;
   background-color: #328E6E;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
   color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-4px);
 }
 
 .post-title {
@@ -174,94 +185,26 @@ body {
   font-size: clamp(14px, 4vw, 20px);
 }
 
+.post-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #fff;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  flex-grow: 1;
+}
+
 .audio-player {
   width: 100%;
   margin: 15px 0;
 }
 
-.post-description {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: #ccc;
-    overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 4;         /* Show up to 4 lines */
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
-}
-
-.download-form {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
-}
-
-.download-button {
-  width: auto;
-  padding: 10px 24px;
-  background-color: #67AE6E;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.download-button:hover {
-  background-color: #90C67C;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-.download-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-/* Grid layout */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, 210px);
-  gap: 24px;
-  padding: 40px 20px;
-}
-
-/* Individual post card */
-.post-card {
-  height: 270px;
-  background-color: #328E6E;
-  border-radius: 12px;
-  padding: 20px;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.2s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-4px);
-}
-
-
-.post-description {
-  font-size: 0.95rem;
-  color: #fff;
-  flex-grow: 1;
-}
-
-.download-form {
-  display: flex;
-  justify-content: center; /* ⬅️ center horizontally */
-  margin-top: 16px;
-}
-
+/* ====== Buttons ====== */
 .play-button {
-  background-color: #67AE6E;        /* your site's green */
+  background-color: #67AE6E;
   color: white;
   border: none;
   padding: 10px 14px;
@@ -277,6 +220,67 @@ body {
   transform: scale(1.1);
 }
 
+.download-button,
+.like-button {
+  width: auto;
+  padding: 10px 24px;
+  background-color: #328E6E;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-button:hover,
+.like-button:hover {
+  background-color: #276f57;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+.download-button:active,
+.like-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon-button {
+  font-size: 1.6rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.icon-button:hover {
+  transform: scale(1.2);
+}
+
+.icon-button i {
+  color: white;
+}
+
+/* ====== Layout ====== */
+.download-form,
+.like-form {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 0px;
+  margin-top: 16px;
+}
+
+/* ====== Add Button ====== */
 .floating-button {
   position: fixed;
   bottom: 24px;
@@ -297,57 +301,4 @@ body {
 
 .floating-button:hover {
   background-color: #276f57;
-}
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 0px;
-  margin-top: 16px;
-}
-
-.download-form,
-.like-form {
-  margin: 0;
-}
-
-.like-button {
-  width: auto;
-  padding: 10px 24px;
-  background-color: #328E6E;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.like-button:hover {
-  background-color: #276f57;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
-}
-
-.like-button:active {
-  transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.icon-button {
-  font-size: 1.6rem;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.icon-button:hover {
-  transform: scale(1.2);
-}
-
-.icon-button i {
-  color: white;
 }

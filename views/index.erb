@@ -9,93 +9,75 @@
   <link rel="stylesheet" href="/css/main.css">
   <link rel="shortcut icon" href="img/logo.png"> 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 </head>
 <body>
-
-
   <header class="site-header">
-  <div class="container">
-    <div class="logo">
-      <a href="/"><img src="/img/logo.png" alt="Sound Swap Logo" class="logo-img">SoundSwap</a>
-    </div>
-    
-    <form action="/search" method="get">
-        <% if @is_from_posts %>
-        <input type="text" name="query" placeholder="<%= @user.username %>のポストから検索..." value="<%= @query %>">
-        <% else %>
-        <input type="text" name="query" placeholder="検索..." value="<%= @query %>">
-        <% end %>
-      <button type="submit"></button>
-    </form>
-
-
-    <nav class="nav-links">
+    <div class="container">
+      <div class="logo">
+        <a href="/"><img src="/img/logo.png" alt="Sound Swap Logo" class="logo-img">SoundSwap</a>
+      </div>
+      
+      <form action="/search" method="get">
+          <% if @is_from_posts %>
+          <input type="text" name="query" placeholder="<%= @user.username %>のポストから検索..." value="<%= @query %>">
+          <% else %>
+          <input type="text" name="query" placeholder="検索..." value="<%= @query %>">
+          <% end %>
+        <button type="submit"></button>
+      </form>
+      <nav class="nav-links">
         <span class="welcome-text">ようこそ、<%= @user.username %>さん</span>
         <a href="/signin" class="nav-button">ログアウト</a>
         <a href="/profile" class="nav-button">プロフィール</a>
-    </nav>
-  </div>
-</header>
+      </nav>
+    </div>
+  </header>
 
   <main>
-  <div class="grid-container">
-    <% @posts.each do |upload| %>
-      <div class="post-card">
-        <h2 class="post-title"><%= upload.post_title %></h2>
-        <audio id="audio-<%= upload.id %>">
-  <source src="/posts/<%= upload.id %>/audio" type="audio/mpeg">
-  お使いのブラウザは audio 要素をサポートしていません。
-</audio>
-
-        <button class="play-button" onclick="playAudio('<%= upload.id %>')">▶</button>
-
-
-        <p class="post-description">
-          <%= upload.description %>
-        </p>
-
-<div class="button-row">
-  <form action="/<%= upload.id %>/download" method="POST" class="download-form">
-    <input type="hidden" name="_method" value="PATCH">
-    <% download = Download.find_by(uploads_id: upload.id) %>
-    <% if download.nil? || download.user_id != @user.id %>
-      <button type="submit" class="icon-button" title="Download"><i class="fas fa-download"></i></button>
-    <% end %>
-  </form>
-  
-  <% if upload.user_id == session[:user_id] %>
-<form action="/<%= upload.id %>/delete/post" method="POST" class="download-form">
-  <input type="hidden" name="_method" value="DELETE">
-  <button type="submit" class="icon-button" title="Delete"><i class="fas fa-trash"></i></button>
-</form>
-<% end %>
-
-
-  <% if !(@liked_post_id_array || []).include?(upload.id) %>
-
-    <form action="/<%= upload.id %>/like" method="POST" class="like-form">
-      <input type="hidden" name="_method" value="PATCH">
-      <button type="submit" class="icon-button" title="Like"><i class="far fa-heart"></i></button>
-    </form>
-  <% else %>
-    <form action="/<%= upload.id %>/dislike" method="POST" class="like-form">
-      <input type="hidden" name="_method" value="PATCH">
-      <button type="submit" class="icon-button" title="Unlike"><i class="fas fa-heart"></i></button>
-    </form>
-  <% end %>
-</div>
-
-
-      
-
-      </div>
-    <% end %>
-  </div>
+    <div class="grid-container">
+      <% @posts.each do |upload| %>
+        <div class="post-card">
+          <h2 class="post-title"><%= upload.post_title %></h2>
+          <audio id="audio-<%= upload.id %>">
+            <source src="/posts/<%= upload.id %>/audio" type="audio/mpeg">
+            お使いのブラウザは audio 要素をサポートしていません。
+          </audio>
+          <button class="play-button" onclick="playAudio('<%= upload.id %>')">▶</button>
+          <p class="post-description">
+            <%= upload.description %>
+          </p>
+          <div class="button-row">
+            <form action="/<%= upload.id %>/download" method="POST" class="download-form">
+              <input type="hidden" name="_method" value="PATCH">
+              <% download = Download.find_by(uploads_id: upload.id) %>
+              <% if download.nil? || download.user_id != @user.id %>
+                <button type="submit" class="icon-button" title="Download"><i class="fas fa-download"></i></button>
+              <% end %>
+            </form>
+            
+            <% if upload.user_id == session[:user_id] %>
+            <form action="/<%= upload.id %>/delete/post" method="POST" class="download-form">
+              <input type="hidden" name="_method" value="DELETE">
+              <button type="submit" class="icon-button" title="Delete"><i class="fas fa-trash"></i></button>
+            </form>
+            <% end %>
+            <% if !(@liked_post_id_array || []).include?(upload.id) %>
+              <form action="/<%= upload.id %>/like" method="POST" class="like-form">
+                <input type="hidden" name="_method" value="PATCH">
+                <button type="submit" class="icon-button" title="Like"><i class="far fa-heart"></i></button>
+              </form>
+            <% else %>
+              <form action="/<%= upload.id %>/dislike" method="POST" class="like-form">
+                <input type="hidden" name="_method" value="PATCH">
+                <button type="submit" class="icon-button" title="Unlike"><i class="fas fa-heart"></i></button>
+              </form>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   <a href="/upload" class="floating-button">＋</a>
-
-</main>
-
-<script src="/js/main.js"></script>
+  </main>
+  <script src="/js/main.js"></script>
 </body>
 </html>

@@ -8,18 +8,19 @@ body {
   margin: 0;
 }
 
+/* ====== Form Container ====== */
 form {
   background: white;
-  padding: 40px 30px;
+  padding: 40px 30px 25px;
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 360px;
   box-sizing: border-box;
   text-align: center;
-  padding-bottom: 25px
 }
 
+/* ====== Heading ====== */
 h1 {
   text-align: center;
   font-size: 32px;
@@ -27,6 +28,7 @@ h1 {
   color: #333;
 }
 
+/* ====== Input Fields ====== */
 input[type="text"],
 input[type="password"] {
   width: 100%;
@@ -38,6 +40,7 @@ input[type="password"] {
   font-size: 14px;
 }
 
+/* ====== Submit Button ====== */
 input[type="submit"] {
   width: 100%;
   padding: 12px;
@@ -54,10 +57,11 @@ input[type="submit"]:hover {
   background-color: #67AE6E;
 }
 
+/* ====== Paragraph & Links ====== */
 p {
   margin-top: 16px;
+  margin-bottom: 0;
   font-size: 14px;
-  margin-bottom: 0px;
 }
 
 a {

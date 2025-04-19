@@ -8,59 +8,49 @@
   <link rel="stylesheet" href="/css/profile.css">
   <link rel="shortcut icon" href="img/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
 </head>
 <body>
   <header class="profile-header">
     <div class="alignment">
       <div class="logo">
-      <a href="/"><img src="/img/logo.png" alt="Sound Swap Logo" class="logo-img">SoundSwap</a>
-      <form action="/search-profile" method="get">
-        <input type="text" name="query" placeholder="検索..." value="<%= @query %>">
-        <button type="submit"></button>
-      </form>
+        <a href="/"><img src="/img/logo.png" alt="Sound Swap Logo" class="logo-img">SoundSwap</a>
+        <form action="/search-profile" method="get">
+          <input type="text" name="query" placeholder="検索..." value="<%= @query %>">
+          <button type="submit"></button>
+        </form>
+      </div>
+      <div class="right">
+        <a href="/posts"><%=@user.username%>のポスト</a>
+        <h1 class="username"><%= @user.username %>のプロフィール</h1>
+      </div>
     </div>
-    <div class="right">
-      <a href="/posts"><%=@user.username%>のポスト</a>
-      <h1 class="username"><%= @user.username %>のプロフィール</h1>
-    </div>
-    </div>
-    
-
   </header>
-
   <main class="card-container">
     <% @downloaded_soundeffects.each do |se| %>
     <div class="card">
-  <form action="/<%= se.id %>/change" method="POST" class="edit-form">
-    <input type="hidden" name="_method" value="PATCH">
-    <input type="text" name="title" value="<%= se.title %>" class="title-input">
-    <!--<button type="submit" class="submit-button">-->
-    <!--  <i class="fas fa-save"></i>-->
-    <!--</button>-->
-  </form>
-
-  <form action="/<%= se.id %>/delete" method="POST" class="delete-form">
-    <input type="hidden" name="_method" value="DELETE">
-    <button type="submit" class="delete-button">
-      <i class="fas fa-trash-alt"></i>
-    </button>
-  </form>
-
-  <button class="play-button" onclick="playAudio('<%= se.uploads_id %>')">
-    <i class="fas fa-play"></i>
-  </button>
-
-  <audio id="audio-<%= se.uploads_id %>">
-    <source src="/posts/<%= se.uploads_id %>/audio" type="audio/mpeg">
-
-    お使いのブラウザは audio 要素をサポートしていません。
-  </audio>
-</div>
-
+      <form action="/<%= se.id %>/change" method="POST" class="edit-form">
+        <input type="hidden" name="_method" value="PATCH">
+        <input type="text" name="title" value="<%= se.title %>" class="title-input">
+        <!--<button type="submit" class="submit-button">-->
+        <!--  <i class="fas fa-save"></i>-->
+        <!--</button>-->
+      </form>
+      <form action="/<%= se.id %>/delete" method="POST" class="delete-form">
+        <input type="hidden" name="_method" value="DELETE">
+        <button type="submit" class="delete-button">
+          <i class="fas fa-trash-alt"></i>
+        </button>
+      </form>
+      <button class="play-button" onclick="playAudio('<%= se.uploads_id %>')">
+        <i class="fas fa-play"></i>
+      </button>
+      <audio id="audio-<%= se.uploads_id %>">
+        <source src="/posts/<%= se.uploads_id %>/audio" type="audio/mpeg">
+        お使いのブラウザは audio 要素をサポートしていません。
+      </audio>
+    </div>
     <% end %>
   </main>
-
   <script src="/js/main.js"></script>
 </body>
 </html>
